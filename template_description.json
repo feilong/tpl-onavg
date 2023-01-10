@@ -1,0 +1,18 @@
+{
+  "Authors": [
+    "Ma Feilong",
+    "Guo Jiahui",
+    "M. Ida Gobbini",
+    "James V. Haxby"
+  ],
+  "BIDSVersion": "1.1.0",
+  "Curators": [],
+  "Identifier": "onavg",
+  "Name": "onavg (OpenNeuro Average) surface template",
+  "License": "CC0",
+  "ReferencesAndLinks": [
+    ""
+  ],
+  "TemplateFlowVersion": "1.0.0",
+  "res": {}
+}
