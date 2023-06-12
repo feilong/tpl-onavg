@@ -1,0 +1,16 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index
+parts:
+  - caption: Use the onavg template
+    chapters:
+    - file: how_to_use_w_freesurfer
+    - file: how_to_use_w_python
+    - file: forrest_compare_resampling
+  - caption: Replication of key analyses
+    chapters:
+    - file: inter-vertex_distance
+    - file: variation_across_vertices
+
