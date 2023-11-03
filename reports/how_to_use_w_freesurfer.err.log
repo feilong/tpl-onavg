@@ -128,12 +128,15 @@ if __name__ == '__main__':
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m<ipython-input-1-6692249c9367>[0m in [0;36m<module>[0;34m[0m
-[1;32m     16[0m         [0mlink[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mjoin[0m[0;34m([0m[0msd[0m[0;34m,[0m [0;34m'onavg-ico32'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     17[0m         [0;32mif[0m [0;32mnot[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mexists[0m[0;34m([0m[0mlink[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 18[0;31m             [0mos[0m[0;34m.[0m[0msymlink[0m[0;34m([0m[0monavg[0m[0;34m,[0m [0mlink[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     19[0m [0;34m[0m[0m
-[1;32m     20[0m         wf_root = os.path.join(
+Cell [0;32mIn[1], line 18[0m
+[1;32m     16[0m link [38;5;241m=[39m os[38;5;241m.[39mpath[38;5;241m.[39mjoin(sd, [38;5;124m'[39m[38;5;124monavg-ico32[39m[38;5;124m'[39m)
+[1;32m     17[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m os[38;5;241m.[39mpath[38;5;241m.[39mexists(link):
+[0;32m---> 18[0m     [43mos[49m[38;5;241;43m.[39;49m[43msymlink[49m[43m([49m[43monavg[49m[43m,[49m[43m [49m[43mlink[49m[43m)[49m
+[1;32m     20[0m wf_root [38;5;241m=[39m os[38;5;241m.[39mpath[38;5;241m.[39mjoin(
+[1;32m     21[0m     os[38;5;241m.[39mpath[38;5;241m.[39mexpanduser([38;5;124mf[39m[38;5;124m'[39m[38;5;124m~/lab/fmriprep_work_root/[39m[38;5;132;01m{[39;00mdset[38;5;132;01m}[39;00m[38;5;124m_[39m[38;5;132;01m{[39;00mfmriprep_version[38;5;132;01m}[39;00m[38;5;124m/work_[39m[38;5;132;01m{[39;00msid[38;5;132;01m}[39;00m[38;5;124m'[39m),
+[1;32m     22[0m     [38;5;124mf[39m[38;5;124m'[39m[38;5;124mfmriprep_wf[39m[38;5;124m'[39m, [38;5;124mf[39m[38;5;124m'[39m[38;5;124msingle_subject_[39m[38;5;132;01m{[39;00msid[38;5;132;01m}[39;00m[38;5;124m_wf[39m[38;5;124m'[39m)
+[1;32m     24[0m raw_bolds [38;5;241m=[39m [38;5;28msorted[39m(glob([38;5;124mf[39m[38;5;124m'[39m[38;5;132;01m{[39;00mbids_dir[38;5;132;01m}[39;00m[38;5;124m/sub-[39m[38;5;132;01m{[39;00msid[38;5;132;01m}[39;00m[38;5;124m/ses-movie/func/*_bold.nii.gz[39m[38;5;124m'[39m)) [38;5;241m+[39m \
+[1;32m     25[0m     [38;5;28msorted[39m(glob([38;5;124mf[39m[38;5;124m'[39m[38;5;132;01m{[39;00mbids_dir[38;5;132;01m}[39;00m[38;5;124m/sub-[39m[38;5;132;01m{[39;00msid[38;5;132;01m}[39;00m[38;5;124m/ses-localizer/func/*_bold.nii.gz[39m[38;5;124m'[39m))
 
 [0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/Users/feilong/lab/freesurfer/subjects/onavg-ico32' -> '/Users/feilong/lab/fmriprep_out_root/forrest_20.2.7/output_01/freesurfer/onavg-ico32'
 FileNotFoundError: [Errno 2] No such file or directory: '/Users/feilong/lab/freesurfer/subjects/onavg-ico32' -> '/Users/feilong/lab/fmriprep_out_root/forrest_20.2.7/output_01/freesurfer/onavg-ico32'
