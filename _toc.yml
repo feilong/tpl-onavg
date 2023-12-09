@@ -9,6 +9,7 @@ parts:
     - file: how_to_use_w_freesurfer
     - file: how_to_use_w_python
     - file: forrest_compare_resampled
+    - file: space_travel
   - caption: Replication of key analyses
     chapters:
     - file: inter-vertex_distance

@@ -10,6 +10,7 @@ execute:
   execute_notebooks: auto
   exclude_patterns:
     - forrest_compare_resampled.ipynb
+    - space_travel.ipynb
   skip_cells_with_tag: skip-execution
 
 # Define the name of the latex output file for PDF builds
