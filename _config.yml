@@ -9,6 +9,7 @@ author: Ma Feilong, Guo Jiahui, M. Ida Gobbini, James V. Haxby
 execute:
   execute_notebooks: auto
   exclude_patterns:
+    - mvpa/*.ipynb
     - forrest_compare_resampled.ipynb
     - space_travel.ipynb
   skip_cells_with_tag: skip-execution

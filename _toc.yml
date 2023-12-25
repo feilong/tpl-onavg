@@ -6,12 +6,24 @@ root: index
 parts:
   - caption: Use the onavg template
     chapters:
-    - file: how_to_use_w_freesurfer
-    - file: how_to_use_w_python
-    - file: forrest_compare_resampled
-    - file: space_travel
+    - file: how_to_use/how_to_use_w_freesurfer
+    - file: how_to_use/how_to_use_w_python
+    - file: how_to_use/forrest_compare_resampled
+    - file: how_to_use/space_travel
   - caption: Replication of key analyses
     chapters:
-    - file: inter-vertex_distance
-    - file: variation_across_vertices
-    - file: vertex_distribution
+    - file: optimization
+    - file: replication
+  - caption: Vertex properties
+    chapters:
+    - file: vertex_properties/inter-vertex_distance
+    - file: vertex_properties/variation_across_vertices
+    - file: vertex_properties/vertex_distribution
+  - caption: MVPA performance
+    chapters:
+    - file: mvpa/31_summarize_wholebrain_clf
+    - file: mvpa/33_summarize_sl_clf
+    - file: mvpa/41_summarize_sl_rsa
+  - caption: Computational time
+    chapters:
+    - file: mvpa/50_summarize_computational_time

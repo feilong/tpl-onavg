@@ -12,7 +12,7 @@ kernelspec:
   name: python3
 ---
 
-# Use the `onavg` template with FreeSurfer
+# Use with FreeSurfer
 
 We have prepared the `onavg` template so that it can be easily used with [FreeSurfer](https://surfer.nmr.mgh.harvard.edu/).
 These files can be put under FreeSurfer's subjects directory, and they can be used as an reference subject during resampling.

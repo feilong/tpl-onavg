@@ -1,4 +1,4 @@
-# Use the `onavg` template with Python
+# Use with Python
 
 We wrote the [`process` package](https://github.com/feilong/process) to resample fMRI data onto cortical surface.
 It reads the transforms from the intermediate files in [fMRIPrep](https://fmriprep.org/en/stable/)'s work directory and performs resampling based on these transforms.
