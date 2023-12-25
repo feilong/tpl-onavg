@@ -48,7 +48,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Use the onavg template with FreeSurfer" href="how_to_use_w_freesurfer.html" />
+    <link rel="next" title="Use with FreeSurfer" href="how_to_use/how_to_use_w_freesurfer.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -110,34 +110,22 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="how_to_use_w_freesurfer.html">
-   Use the
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     onavg
-    </span>
-   </code>
-   template with FreeSurfer
+  <a class="reference internal" href="how_to_use/how_to_use_w_freesurfer.html">
+   Use with FreeSurfer
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="how_to_use_w_python.html">
-   Use the
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     onavg
-    </span>
-   </code>
-   template with Python
+  <a class="reference internal" href="how_to_use/how_to_use_w_python.html">
+   Use with Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="forrest_compare_resampled.html">
+  <a class="reference internal" href="how_to_use/forrest_compare_resampled.html">
    (Optional) Compare resampled data
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="space_travel.html">
+  <a class="reference internal" href="how_to_use/space_travel.html">
    Transform data to onavg space
   </a>
  </li>
@@ -149,18 +137,69 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="inter-vertex_distance.html">
+  <a class="reference internal" href="optimization.html">
+   Optimizing the surface template
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="replication.html">
+   Outline of benchmarking analyses
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vertex properties
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="vertex_properties/inter-vertex_distance.html">
    Inter-vertex distance
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="variation_across_vertices.html">
+  <a class="reference internal" href="vertex_properties/variation_across_vertices.html">
    Variation in vertex properties across the cortex
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="vertex_distribution.html">
+  <a class="reference internal" href="vertex_properties/vertex_distribution.html">
    Vertex distribution on the cortex
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MVPA performance
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mvpa/31_summarize_wholebrain_clf.html">
+   Whole-brain classification of movie time points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mvpa/33_summarize_sl_clf.html">
+   Searchlight classification of movie segments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mvpa/41_summarize_sl_rsa.html">
+   Inter-subject correlation of representational geometry
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Computational time
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mvpa/50_summarize_computational_time.html">
+   Benchmarking computational time
   </a>
  </li>
 </ul>
@@ -350,18 +389,39 @@ Different from previous surface templates, the vertex locations of <code class="
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Use the onavg template</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="how_to_use_w_freesurfer.html">Use the <code class="docutils literal notranslate"><span class="pre">onavg</span></code> template with FreeSurfer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how_to_use_w_python.html">Use the <code class="docutils literal notranslate"><span class="pre">onavg</span></code> template with Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="forrest_compare_resampled.html">(Optional) Compare resampled data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="space_travel.html">Transform data to onavg space</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_use/how_to_use_w_freesurfer.html">Use with FreeSurfer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_use/how_to_use_w_python.html">Use with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_use/forrest_compare_resampled.html">(Optional) Compare resampled data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to_use/space_travel.html">Transform data to onavg space</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Replication of key analyses</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="inter-vertex_distance.html">Inter-vertex distance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="variation_across_vertices.html">Variation in vertex properties across the cortex</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vertex_distribution.html">Vertex distribution on the cortex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optimization.html">Optimizing the surface template</a></li>
+<li class="toctree-l1"><a class="reference internal" href="replication.html">Outline of benchmarking analyses</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Vertex properties</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vertex_properties/inter-vertex_distance.html">Inter-vertex distance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vertex_properties/variation_across_vertices.html">Variation in vertex properties across the cortex</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vertex_properties/vertex_distribution.html">Vertex distribution on the cortex</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MVPA performance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mvpa/31_summarize_wholebrain_clf.html">Whole-brain classification of movie time points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mvpa/33_summarize_sl_clf.html">Searchlight classification of movie segments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mvpa/41_summarize_sl_rsa.html">Inter-subject correlation of representational geometry</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Computational time</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mvpa/50_summarize_computational_time.html">Benchmarking computational time</a></li>
 </ul>
 </div>
 </div>
@@ -393,10 +453,10 @@ Different from previous surface templates, the vertex locations of <code class="
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="how_to_use_w_freesurfer.html" title="next page">
+    <a class='right-next' id="next-link" href="how_to_use/how_to_use_w_freesurfer.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Use the <code class="docutils literal notranslate"><span class="pre">onavg</span></code> template with FreeSurfer</p>
+        <p class="prev-next-title">Use with FreeSurfer</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

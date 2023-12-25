@@ -1,0 +1,890 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benchmarking computational time &#8212; tpl-onavg</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Inter-subject correlation of representational geometry" href="41_summarize_sl_rsa.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">tpl-onavg</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    The onavg (OpenNeuro Average) template
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Use the onavg template
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../how_to_use/how_to_use_w_freesurfer.html">
+   Use with FreeSurfer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../how_to_use/how_to_use_w_python.html">
+   Use with Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../how_to_use/forrest_compare_resampled.html">
+   (Optional) Compare resampled data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../how_to_use/space_travel.html">
+   Transform data to onavg space
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Replication of key analyses
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../optimization.html">
+   Optimizing the surface template
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../replication.html">
+   Outline of benchmarking analyses
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vertex properties
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../vertex_properties/inter-vertex_distance.html">
+   Inter-vertex distance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../vertex_properties/variation_across_vertices.html">
+   Variation in vertex properties across the cortex
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../vertex_properties/vertex_distribution.html">
+   Vertex distribution on the cortex
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MVPA performance
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="31_summarize_wholebrain_clf.html">
+   Whole-brain classification of movie time points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="33_summarize_sl_clf.html">
+   Searchlight classification of movie segments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="41_summarize_sl_rsa.html">
+   Inter-subject correlation of representational geometry
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Computational time
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Benchmarking computational time
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://colab.research.google.com/github/feilong/tpl-onavg/blob/docs/mvpa/50_summarize_computational_time.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/feilong/tpl-onavg"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/feilong/tpl-onavg/issues/new?title=Issue%20on%20page%20%2Fmvpa/50_summarize_computational_time.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/mvpa/50_summarize_computational_time.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hyperalignment-template-creation">
+   Hyperalignment template creation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hyperalignment-transformations">
+   Hyperalignment transformations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#movie-segment-classification">
+   Movie segment classification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representational-similarity-analysis">
+   Representational similarity analysis
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Benchmarking computational time</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hyperalignment-template-creation">
+   Hyperalignment template creation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hyperalignment-transformations">
+   Hyperalignment transformations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#movie-segment-classification">
+   Movie segment classification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representational-similarity-analysis">
+   Representational similarity analysis
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="benchmarking-computational-time">
+<h1>Benchmarking computational time<a class="headerlink" href="#benchmarking-computational-time" title="Permalink to this headline">#</a></h1>
+<p>In this Jupyter Notebook, we demonstrate how to benchmark the computational time of various algorithms.
+While running these algorithms, we recorded the computational time using <code class="docutils literal notranslate"><span class="pre">nb.record</span></code> or <code class="docutils literal notranslate"><span class="pre">nb.utils.monitor</span></code> (see other Notebooks), and the records can be parsed using <code class="docutils literal notranslate"><span class="pre">nb.utils.parse_record</span></code>.</p>
+<p>To compare computational time across template spaces (fsavg, fslr, and onavg), it is important that the computations are performed on the same node of the HPC cluster and in the same environment.
+<code class="docutils literal notranslate"><span class="pre">nb.utils.parse_record</span></code> has an <code class="docutils literal notranslate"><span class="pre">assert_node</span></code> parameter, which can be used to ensure that the computations were performed on a specific node.</p>
+<p>The computational times in this Notebook were based on the latest s-nodes of the Discovery HPC cluster, and they are faster in general. However, the differences between template spaces still remain, and the computational times are shorter when using <code class="docutils literal notranslate"><span class="pre">onavg</span></code> instead of other template spaces.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">neuroboros</span> <span class="k">as</span> <span class="nn">nb</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This example uses the <code class="docutils literal notranslate"><span class="pre">ico64</span></code> resolution. For other resolutions, simply change the setting here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spaces</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1">-ico</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;fsavg&#39;</span><span class="p">,</span> <span class="s1">&#39;fslr&#39;</span><span class="p">,</span> <span class="s1">&#39;onavg&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">64</span><span class="p">]]</span>
+<span class="n">dsets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;budapest&#39;</span><span class="p">,</span> <span class="s1">&#39;raiders&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">&#39;tab10&#39;</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;Arial.ttf&#39;</span><span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">font_manager</span>
+    <span class="n">font_manager</span><span class="o">.</span><span class="n">fontManager</span><span class="o">.</span><span class="n">addfont</span><span class="p">(</span><span class="s1">&#39;Arial.ttf&#39;</span><span class="p">)</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Arial&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="hyperalignment-template-creation">
+<h2>Hyperalignment template creation<a class="headerlink" href="#hyperalignment-template-creation" title="Permalink to this headline">#</a></h2>
+<p>This section shows the computational time to create a functional template for hyperalignment, which is also known as a common space.</p>
+<p>The computational time is proportional to the number of participants. In this case, the time for these two datasets (<em>n</em> = 21 and 23, respectively, for <em>Budapest</em> and <em>Raiders</em>) is similar to the StudyForrest dataset (<em>n</em> = 15), even though the computations were performed on a faster HPC node for these two datasets.</p>
+<p>To accurately record the CPU time, the computations were performed in a single-threaded manner. Typically, these computations are performed in parallel and are much faster (e.g., about half an hour per hemisphere with <code class="docutils literal notranslate"><span class="pre">n_jobs=40</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tpl_time</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">dset_name</span> <span class="ow">in</span> <span class="n">dsets</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">space</span> <span class="ow">in</span> <span class="n">spaces</span><span class="p">:</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">nb</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">parse_record</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;ha_tpl/</span><span class="si">{</span><span class="n">dset_name</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">space</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">lr</span><span class="si">}</span><span class="s1">h_1st-half_20mm.npy.finish&#39;</span><span class="p">,</span>
+                <span class="n">assert_node</span><span class="o">=</span><span class="s1">&#39;s17&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mf">1e9</span>
+            <span class="k">for</span> <span class="n">lr</span> <span class="ow">in</span> <span class="s1">&#39;lr&#39;</span><span class="p">]</span>
+        <span class="n">tpl_time</span><span class="p">[</span><span class="n">dset_name</span><span class="p">,</span> <span class="n">space</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each entry in the dictionary is a NumPy array with 2 values, which is the computational time in seconds for the left and right hemispheres, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tpl_time</span><span class="p">[</span><span class="n">dset_name</span><span class="p">,</span> <span class="n">space</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="n">_</span><span class="o">/</span><span class="mf">2.54</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)],</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">dset_name</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dsets</span><span class="p">,</span> <span class="n">axs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">space</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">spaces</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">tpl_time</span><span class="p">[</span><span class="n">dset_name</span><span class="p">,</span> <span class="n">space</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mi">3600</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">space</span><span class="p">,</span>
+              <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="n">c</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">dset_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">spaces</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Computational time (hours)&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.09</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;computational_time_template.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1452117d0140d2c71f2eacafddafef19025f5728af1bb72fd676cab2538300af.png" src="../_images/1452117d0140d2c71f2eacafddafef19025f5728af1bb72fd676cab2538300af.png" />
+</div>
+</div>
+</div>
+<div class="section" id="hyperalignment-transformations">
+<h2>Hyperalignment transformations<a class="headerlink" href="#hyperalignment-transformations" title="Permalink to this headline">#</a></h2>
+<p>This section is the computational time of hyperalignment transformation matrices, based on the orthogonal Procrustes algorithm and the warp hyperalignment algorithm, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flavors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;procr&#39;</span><span class="p">,</span> <span class="s1">&#39;ridge&#39;</span><span class="p">]</span>
+
+<span class="n">xfm_time</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">dset_name</span> <span class="ow">in</span> <span class="n">dsets</span><span class="p">:</span>
+    <span class="n">dset</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">dataset</span><span class="p">(</span><span class="n">dset_name</span><span class="p">)</span>
+    <span class="n">sids</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">subjects</span>
+    <span class="k">for</span> <span class="n">space</span> <span class="ow">in</span> <span class="n">spaces</span><span class="p">:</span>
+        <span class="n">folder</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;ha_xfm/</span><span class="si">{</span><span class="n">dset_name</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">space</span><span class="si">}</span><span class="s1">_1st-half&#39;</span>
+        <span class="k">for</span> <span class="n">flavor</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;procr&#39;</span><span class="p">,</span> <span class="s1">&#39;ridge&#39;</span><span class="p">]:</span>
+            <span class="n">tt</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">sid</span> <span class="ow">in</span> <span class="n">sids</span><span class="p">:</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="n">nb</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">parse_record</span><span class="p">(</span>
+                         <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">folder</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">sid</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">lr</span><span class="si">}</span><span class="s1">h_</span><span class="si">{</span><span class="n">flavor</span><span class="si">}</span><span class="s1">_to-tmpl_20mm.npz.finish&#39;</span><span class="p">,</span>
+                         <span class="n">assert_node</span><span class="o">=</span><span class="s1">&#39;s17&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e9</span>
+                     <span class="k">for</span> <span class="n">lr</span> <span class="ow">in</span> <span class="s1">&#39;lr&#39;</span><span class="p">]</span>
+                <span class="n">tt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+            <span class="n">tt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tt</span><span class="p">)</span>
+            <span class="n">xfm_time</span><span class="p">[</span><span class="n">dset_name</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">flavor</span><span class="p">]</span> <span class="o">=</span> <span class="n">tt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each entry in the dictionary is a NumPy array, and its shape is <code class="docutils literal notranslate"><span class="pre">(number</span> <span class="pre">of</span> <span class="pre">subjects,</span> <span class="pre">two</span> <span class="pre">hemispheres,</span> <span class="pre">CPU/wall</span> <span class="pre">time)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tt</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(23, 2, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we show the average CPU time across participants.</p>
+<p>The error bars are standard errors of the mean (SEs).
+However, the SEs are very small, and the error bars are hardly visible.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flavor</span> <span class="o">=</span> <span class="s1">&#39;procr&#39;</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="n">_</span><span class="o">/</span><span class="mf">2.54</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)],</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">dset_name</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dsets</span><span class="p">,</span> <span class="n">axs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">space</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">spaces</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">xfm_time</span><span class="p">[</span><span class="n">dset_name</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">flavor</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">3600</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">se</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">se</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">space</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="n">c</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">dset_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">spaces</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Computational time (hours)&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.09</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;computational_time_</span><span class="si">{</span><span class="n">flavor</span><span class="si">}</span><span class="s1">.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e7dca92e94d9c59ff47a49884f3ef3424e57e9a08309493e7cabe1241c4aef26.png" src="../_images/e7dca92e94d9c59ff47a49884f3ef3424e57e9a08309493e7cabe1241c4aef26.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flavor</span> <span class="o">=</span> <span class="s1">&#39;ridge&#39;</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="n">_</span><span class="o">/</span><span class="mf">2.54</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)],</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">dset_name</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dsets</span><span class="p">,</span> <span class="n">axs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">space</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">spaces</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">xfm_time</span><span class="p">[</span><span class="n">dset_name</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">flavor</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">3600</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">se</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">se</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">space</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="n">c</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">dset_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">spaces</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Computational time (hours)&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.09</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;computational_time_</span><span class="si">{</span><span class="n">flavor</span><span class="si">}</span><span class="s1">.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7906bcd06721402f2b1a974ab81c387513524c038f2c039129c92abe3fb17f5d.png" src="../_images/7906bcd06721402f2b1a974ab81c387513524c038f2c039129c92abe3fb17f5d.png" />
+</div>
+</div>
+</div>
+<div class="section" id="movie-segment-classification">
+<h2>Movie segment classification<a class="headerlink" href="#movie-segment-classification" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_time</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">train_dur</span><span class="p">,</span> <span class="n">test_dur</span> <span class="o">=</span> <span class="s1">&#39;1st-half&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd-half&#39;</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">radius</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">align_radius</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">for</span> <span class="n">dset_name</span> <span class="ow">in</span> <span class="n">dsets</span><span class="p">:</span>
+    <span class="n">dset</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">dataset</span><span class="p">(</span><span class="n">dset_name</span><span class="p">)</span>
+    <span class="n">sids</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">subjects</span>
+    <span class="k">for</span> <span class="n">space</span> <span class="ow">in</span> <span class="n">spaces</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">align</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;surf&#39;</span><span class="p">,</span> <span class="s1">&#39;procr&#39;</span><span class="p">,</span> <span class="s1">&#39;ridge&#39;</span><span class="p">]:</span>
+            <span class="n">tt</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">sid</span> <span class="ow">in</span> <span class="n">sids</span><span class="p">:</span>
+                <span class="n">folder</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;sl_clf/</span><span class="si">{</span><span class="n">dset_name</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">space</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">align</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">align_radius</span><span class="si">}</span><span class="s1">mm&#39;</span>\
+                    <span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">train_dur</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">test_dur</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s1">TRs&#39;</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="n">nb</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">parse_record</span><span class="p">(</span>
+                         <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">folder</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">sid</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">lr</span><span class="si">}</span><span class="s1">h_</span><span class="si">{</span><span class="n">radius</span><span class="si">}</span><span class="s1">mm.npy.finish&#39;</span><span class="p">,</span>
+                         <span class="n">assert_node</span><span class="o">=</span><span class="s1">&#39;s20&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e9</span>
+                     <span class="k">for</span> <span class="n">lr</span> <span class="ow">in</span> <span class="s1">&#39;lr&#39;</span><span class="p">]</span>
+                <span class="n">tt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+            <span class="n">tt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tt</span><span class="p">)</span>
+            <span class="n">clf_time</span><span class="p">[</span><span class="n">dset_name</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">align</span><span class="p">]</span> <span class="o">=</span> <span class="n">tt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each entry in the dictionary is a NumPy array, and its shape is <code class="docutils literal notranslate"><span class="pre">(number</span> <span class="pre">of</span> <span class="pre">subjects,</span> <span class="pre">two</span> <span class="pre">hemispheres,</span> <span class="pre">CPU/wall</span> <span class="pre">time)</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tt</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(23, 2, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="n">_</span><span class="o">/</span><span class="mf">2.54</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)],</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">dset_name</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dsets</span><span class="p">,</span> <span class="n">axs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">space</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">spaces</span><span class="p">):</span>
+        <span class="n">tt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">clf_time</span><span class="p">[</span><span class="n">dset_name</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">align</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span>
+                       <span class="k">for</span> <span class="n">align</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;surf&#39;</span><span class="p">,</span> <span class="s1">&#39;procr&#39;</span><span class="p">,</span> <span class="s1">&#39;ridge&#39;</span><span class="p">]])</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">tt</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">se</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">se</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">space</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="n">c</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">dset_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">spaces</span><span class="p">)</span>
+    <span class="c1"># ax.set_yticks(np.arange(6) * 0.5)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Computational time (minutes)&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.09</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;computational_time_clf.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/405b34dc0e1b63ff13a893d2a66e41ccaa13e6f20dce7851c09f1763f92e5e25.png" src="../_images/405b34dc0e1b63ff13a893d2a66e41ccaa13e6f20dce7851c09f1763f92e5e25.png" />
+</div>
+</div>
+</div>
+<div class="section" id="representational-similarity-analysis">
+<h2>Representational similarity analysis<a class="headerlink" href="#representational-similarity-analysis" title="Permalink to this headline">#</a></h2>
+<p>Due to the nature of the RSA analysis, the computational time was recorded separately for each searchlight to avoid storing the representational dissimilarity matrices (RDMs).</p>
+<p>It is time-consuming to load these records (one file per searchlight), and therefore we use a summary file to store all the numbers to avoid loading these records repetitively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_time_fn</span> <span class="o">=</span> <span class="s1">&#39;rsa_time.pkl&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">rsa_time_fn</span><span class="p">):</span>
+    <span class="n">rsa_time</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">train_dur</span><span class="p">,</span> <span class="n">test_dur</span> <span class="o">=</span> <span class="s1">&#39;1st-half&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd-half&#39;</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">align_radius</span> <span class="o">=</span> <span class="mi">20</span>
+    <span class="n">metric</span> <span class="o">=</span> <span class="s1">&#39;correlation&#39;</span>
+    
+    <span class="k">for</span> <span class="n">align</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;surf&#39;</span><span class="p">,</span> <span class="s1">&#39;procr&#39;</span><span class="p">,</span> <span class="s1">&#39;ridge&#39;</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">dset_name</span><span class="p">,</span> <span class="n">node</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dsets</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;s21&#39;</span><span class="p">,</span> <span class="s1">&#39;s22&#39;</span><span class="p">]):</span>
+            <span class="k">for</span> <span class="n">space</span> <span class="ow">in</span> <span class="n">spaces</span><span class="p">:</span>
+                <span class="n">folder</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;sl_rsa_isc/</span><span class="si">{</span><span class="n">dset_name</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">space</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">align</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">align_radius</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">test_dur</span><span class="si">}</span><span class="s1">&#39;</span>
+                <span class="n">tt</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">lr</span> <span class="ow">in</span> <span class="s1">&#39;lr&#39;</span><span class="p">:</span>
+                    <span class="n">sls</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">sls</span><span class="p">(</span><span class="n">lr</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="n">space</span><span class="p">,</span> <span class="n">center_space</span><span class="o">=</span><span class="n">space</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;-ico32&#39;</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">sl_idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sls</span><span class="p">)):</span>
+                        <span class="n">t</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">parse_record</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">folder</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">lr</span><span class="si">}</span><span class="s1">h_</span><span class="si">{</span><span class="n">radius</span><span class="si">}</span><span class="s1">mm_</span><span class="si">{</span><span class="n">metric</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">sl_idx</span><span class="si">:</span><span class="s1">05d</span><span class="si">}</span><span class="s1">.npz.timing&#39;</span><span class="p">,</span>
+                            <span class="n">assert_node</span><span class="o">=</span><span class="n">node</span><span class="p">,</span>
+                        <span class="p">)</span> <span class="o">/</span> <span class="mf">1e9</span>
+                        <span class="n">tt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+                <span class="n">tt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tt</span><span class="p">)</span>
+                <span class="n">rsa_time</span><span class="p">[</span><span class="n">dset_name</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">align</span><span class="p">]</span> <span class="o">=</span> <span class="n">tt</span>
+    <span class="n">nb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">rsa_time_fn</span><span class="p">,</span> <span class="n">rsa_time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each entry in the dictionary is a NumPy array with two dimensions. The first is the number of vertices, and the second is whether the recorded time is CPU time or wall time.</p>
+<p>The recorded computational time for each searchlight is the total time across all participants. We divide it by the number of participants to get the computational time per participant, which is then summed up across searchlights.</p>
+<p>In this analysis, the SE is the SE across repetitions (3 alignment methods, which theoretically have the same computational complexity).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_time</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">rsa_time_fn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_time</span><span class="p">[</span><span class="n">dset_name</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">align</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(19341, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="n">_</span><span class="o">/</span><span class="mf">2.54</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)],</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">dset_name</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dsets</span><span class="p">,</span> <span class="n">axs</span><span class="p">):</span>
+    <span class="n">ns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;budapest&#39;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s1">&#39;raiders&#39;</span><span class="p">:</span> <span class="mi">23</span><span class="p">}[</span><span class="n">dset_name</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">space</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">spaces</span><span class="p">):</span>
+        <span class="n">tt</span> <span class="o">=</span> <span class="p">[</span><span class="n">rsa_time</span><span class="p">[</span><span class="n">dset_name</span><span class="p">,</span> <span class="n">space</span><span class="p">,</span> <span class="n">align</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+              <span class="k">for</span> <span class="n">align</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;surf&#39;</span><span class="p">,</span> <span class="s1">&#39;procr&#39;</span><span class="p">,</span> <span class="s1">&#39;ridge&#39;</span><span class="p">]]</span>
+        <span class="n">tt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tt</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3600</span> <span class="o">/</span> <span class="n">ns</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">tt</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="n">se</span> <span class="o">=</span> <span class="n">tt</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tt</span><span class="p">))</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">se</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">space</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="n">c</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">dset_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">spaces</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tt</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">+</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Computational time (hours)&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.09</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;computational_time_rsa.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">transparent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f85f1e8d9ec7e94c3ab29fa5866fc2ff8ad027b7dd79ce93e9c97735a96cee29.png" src="../_images/f85f1e8d9ec7e94c3ab29fa5866fc2ff8ad027b7dd79ce93e9c97735a96cee29.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./mvpa"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="41_summarize_sl_rsa.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Inter-subject correlation of representational geometry</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ma Feilong, Guo Jiahui, M. Ida Gobbini, James V. Haxby<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Small numerical differences &#8212; tpl-onavg</title>
+    <title>Outline of benchmarking analyses &#8212; tpl-onavg</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -48,6 +48,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Inter-vertex distance" href="vertex_properties/inter-vertex_distance.html" />
+    <link rel="prev" title="Optimizing the surface template" href="optimization.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -109,34 +111,22 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="how_to_use_w_freesurfer.html">
-   Use the
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     onavg
-    </span>
-   </code>
-   template with FreeSurfer
+  <a class="reference internal" href="how_to_use/how_to_use_w_freesurfer.html">
+   Use with FreeSurfer
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="how_to_use_w_python.html">
-   Use the
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     onavg
-    </span>
-   </code>
-   template with Python
+  <a class="reference internal" href="how_to_use/how_to_use_w_python.html">
+   Use with Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="forrest_compare_resampled.html">
+  <a class="reference internal" href="how_to_use/forrest_compare_resampled.html">
    (Optional) Compare resampled data
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="space_travel.html">
+  <a class="reference internal" href="how_to_use/space_travel.html">
    Transform data to onavg space
   </a>
  </li>
@@ -146,20 +136,71 @@ const thebe_selector_output = ".output, .cell_output"
   Replication of key analyses
  </span>
 </p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="optimization.html">
+   Optimizing the surface template
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Outline of benchmarking analyses
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vertex properties
+ </span>
+</p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="inter-vertex_distance.html">
+  <a class="reference internal" href="vertex_properties/inter-vertex_distance.html">
    Inter-vertex distance
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="variation_across_vertices.html">
+  <a class="reference internal" href="vertex_properties/variation_across_vertices.html">
    Variation in vertex properties across the cortex
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="vertex_distribution.html">
+  <a class="reference internal" href="vertex_properties/vertex_distribution.html">
    Vertex distribution on the cortex
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  MVPA performance
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mvpa/31_summarize_wholebrain_clf.html">
+   Whole-brain classification of movie time points
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mvpa/33_summarize_sl_clf.html">
+   Searchlight classification of movie segments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mvpa/41_summarize_sl_rsa.html">
+   Inter-subject correlation of representational geometry
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Computational time
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mvpa/50_summarize_computational_time.html">
+   Benchmarking computational time
   </a>
  </li>
 </ul>
@@ -252,7 +293,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/feilong/tpl-onavg/issues/new?title=Issue%20on%20page%20%2Fnumerical_differences.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/feilong/tpl-onavg/issues/new?title=Issue%20on%20page%20%2Freplication.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -280,7 +321,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/numerical_differences.md"
+        <a href="_sources/replication.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -317,23 +358,80 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vertex-properties">
+   Vertex properties
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mvpa-performance">
+   MVPA performance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computational-time">
+   Computational time
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Small numerical differences</h1>
+                <h1>Outline of benchmarking analyses</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vertex-properties">
+   Vertex properties
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mvpa-performance">
+   MVPA performance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#computational-time">
+   Computational time
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -341,14 +439,58 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="small-numerical-differences">
-<h1>Small numerical differences<a class="headerlink" href="#small-numerical-differences" title="Permalink to this headline">#</a></h1>
-<p>The numbers based on the <code class="docutils literal notranslate"><span class="pre">ouroboros</span></code> package slightly differ from those reported in the manuscript.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="outline-of-benchmarking-analyses">
+<h1>Outline of benchmarking analyses<a class="headerlink" href="#outline-of-benchmarking-analyses" title="Permalink to this headline">#</a></h1>
+<div class="section" id="vertex-properties">
+<h2>Vertex properties<a class="headerlink" href="#vertex-properties" title="Permalink to this headline">#</a></h2>
+<p>Here is a list of Juptyer Notebooks and pages that characterize how vertex properties vary across the cortex for <code class="docutils literal notranslate"><span class="pre">onavg</span></code> and other templates.</p>
 <ul class="simple">
-<li><p>In the manuscript, the inter-vertex distance was computed by first averaging across all neighbors, and then averaging across all participants; In this Jupyter Book, the distance was first averaged across all participants, and then averaged across neighbors. Note that we used 95% trimmed mean when averaging across participants, and therefore these two steps are not commutative, and small numerical differences can occur based on the order of the operations.</p></li>
-<li><p>Resampling vertex properties from the native space of each participant.</p></li>
-<li><p>fMRIPrep version.</p></li>
+<li><p><a class="reference internal" href="vertex_properties/inter-vertex_distance.html"><span class="doc std std-doc">Inter-vertex distance</span></a></p></li>
+<li><p><a class="reference internal" href="vertex_properties/variation_across_vertices.html"><span class="doc std std-doc">Variation in vertex properties across the cortex</span></a></p></li>
+<li><p><a class="reference internal" href="vertex_properties/vertex_distribution.html"><span class="doc std std-doc">Vertex distribution on the cortex</span></a></p></li>
 </ul>
+</div>
+<div class="section" id="mvpa-performance">
+<h2>MVPA performance<a class="headerlink" href="#mvpa-performance" title="Permalink to this headline">#</a></h2>
+<p>Here is a list of Python scripts and Jupyter Notebooks to replicate the MVPA analyses in the paper. The scripts are approximately numbered in the order they should be run.</p>
+<ul class="simple">
+<li><p><strong>Create hyperalignment template</strong></p>
+<ul>
+<li><p><a class="reference download internal" download="" href="_downloads/0d313863151da4778b6ac5337adef1fd/10_hyperalignment_template.py"><span class="xref download myst">mvpa/10_hyperalignment_template.py</span></a></p></li>
+</ul>
+</li>
+<li><p><strong>Compute hyperalignment transformations</strong></p>
+<ul>
+<li><p><a class="reference download internal" download="" href="_downloads/18fa71cc669dfe1c236afabf3d1c5bb9/20_hyperalignment_transformation.py"><span class="xref download myst">mvpa/20_hyperalignment_transformation.py</span></a></p></li>
+</ul>
+</li>
+<li><p><strong>Whole-brain movie time point classification</strong></p>
+<ul>
+<li><p><a class="reference download internal" download="" href="_downloads/27687a75660648fb933706c5a0d20718/30_wholebrain_clf.py"><span class="xref download myst">mvpa/30_wholebrain_clf.py</span></a></p></li>
+<li><p><a class="reference internal" href="mvpa/31_summarize_wholebrain_clf.html"><span class="doc std std-doc">Whole-brain classification of movie time points</span></a></p></li>
+</ul>
+</li>
+<li><p><strong>Searchlight movie segment classification</strong></p>
+<ul>
+<li><p><a class="reference download internal" download="" href="_downloads/10adbb0dc5c62902abd37a9f97603894/32_sl_clf.py"><span class="xref download myst">mvpa/32_sl_clf.py</span></a></p></li>
+<li><p><a class="reference internal" href="mvpa/33_summarize_sl_clf.html"><span class="doc std std-doc">Searchlight classification of movie segments</span></a></p></li>
+</ul>
+</li>
+<li><p><strong>Searchlight RSA-ISC</strong></p>
+<ul>
+<li><p><a class="reference download internal" download="" href="_downloads/5d601e0d04ef314c0a518f31bb9c288b/40_sl_rsa.py"><span class="xref download myst">mvpa/40_sl_rsa.py</span></a></p></li>
+<li><p><a class="reference internal" href="mvpa/41_summarize_sl_rsa.html"><span class="doc std std-doc">Inter-subject correlation of representational geometry</span></a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="computational-time">
+<h2>Computational time<a class="headerlink" href="#computational-time" title="Permalink to this headline">#</a></h2>
+<p>This Jupyter Notebook summarizes the computational time of the analyses above.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="mvpa/50_summarize_computational_time.html"><span class="doc std std-doc">Benchmarking computational time</span></a></p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -378,6 +520,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="optimization.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Optimizing the surface template</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="vertex_properties/inter-vertex_distance.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Inter-vertex distance</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
